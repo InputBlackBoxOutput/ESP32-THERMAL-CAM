@@ -1,26 +1,4 @@
-#ifndef MLX90640_H
-#define MLX90640_H
-
-#include <Arduino.h>
-#include <Wire.h>
-#include "MLX90640_API.h"
-#include "MLX90640_I2C_Driver.h"
-
-class MLX90640
-{
-public:
-    void setup(void);
-    void readTempValues(void);
-    void printTempValues(void);
-    float tempValues[32 * 24];
-
-private:
-    const byte MLX90640_address = 0x33; // Default 7-bit unshifted address of the MLX90640
-    paramsMLX90640 mlx90640;
-
-    const float emmisivity = 0.95;
-    const uint8_t ta_shift = 8;
-};
+#include "MLX90640.h"
 
 void MLX90640::setup()
 {
@@ -31,7 +9,7 @@ void MLX90640::setup()
     if (Wire.endTransmission() != 0)
         Serial.println("MLX90640 not detected at default I2C address. Please check wiring.");
     else
-        Serial.println("MLX90640 online!");
+        Serial.println("MLX90640 initialized!");
 
     // Get MLX90640 device parameters
     int status;
@@ -52,6 +30,7 @@ void MLX90640::setup()
 // Read pixel data from MLX90640.
 void MLX90640::readTempValues()
 {
+    timestamp = millis();
     for (byte x = 0; x < 2; x++) // Read both subpages
     {
         uint16_t mlx90640Frame[834];
@@ -73,6 +52,9 @@ void MLX90640::readTempValues()
 
 void MLX90640::printTempValues()
 {
+    Serial.print("Timestamp: ");
+    Serial.println(timestamp);
+
     for (int i = 0; i < 768; i++)
     {
         Serial.print(tempValues[i]);
@@ -81,4 +63,3 @@ void MLX90640::printTempValues()
     }
     Serial.println();
 }
-#endif

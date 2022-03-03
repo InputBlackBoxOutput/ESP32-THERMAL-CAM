@@ -1,8 +1,11 @@
 #include <Arduino.h>
-#include "MLX90640.h"
+#define LOOP_DELAY 200 // ms
 
-#define LOOP_DELAY 1000 // ms
+#include "MLX90640.h"
+#include "server.h"
+
 MLX90640 mlx;
+ESP32Server server;
 
 void setup()
 {
@@ -10,12 +13,13 @@ void setup()
   Serial.println("Serial port connected!");
 
   mlx.setup();
+  server.setup();
 }
 
 void loop()
 {
   mlx.readTempValues();
-  mlx.printTempValues();
+  server.handleClient(mlx.timestamp, mlx.tempValues);
 
   delay(LOOP_DELAY);
 }
