@@ -1,0 +1,13 @@
+body {
+    background-color: #FEFEFE;
+}
+
+.container {
+    width: 70%;
+    border: 2px solid gray;
+    border-radius: 5px;
+}
+
+#controls {
+    padding-top: 15rem;
+}
