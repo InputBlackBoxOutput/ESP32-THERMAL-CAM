@@ -3,11 +3,7 @@ body {
 }
 
 .container {
-    width: 80%;
+    width: 95%;
     border: 2px solid gray;
     border-radius: 5px;
-}
-
-#controls {
-    padding-top: 15rem;
 }

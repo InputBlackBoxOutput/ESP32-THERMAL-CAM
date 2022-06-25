@@ -52,14 +52,3 @@ function plotHeatMap(heatmap) {
 
 const heatmap = new Array(32).fill(new Array(28).fill(0));
 plotHeatMap(heatmap);
-
-
-if (
-    screen.width < 500 ||
-    navigator.userAgent.match(/Android/i) ||
-    navigator.userAgent.match(/webOS/i) ||
-    navigator.userAgent.match(/iPhone/i) ||
-    navigator.userAgent.match(/iPod/i)
-) {
-    location.replace("mobile.html");
-}

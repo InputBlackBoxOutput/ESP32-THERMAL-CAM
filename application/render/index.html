@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <div class="container mt-3 pt-3">
+    <div class="container my-3 pt-3">
         <div class="input-group mb-3">
             <div class="input-group-prepend">
                 <span class="input-group-text">IP Address: </span>
@@ -24,53 +24,43 @@
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-8">
-                <div id="heatmap"></div>
+        <div id="heatmap"></div>
+        <div class="row mx-2 p-2">
+            <div class="col-lg-4"></div>
+            <div class="col-lg-4">
+                <button class="btn btn-success btn-block btn-lg">Capture</button>
             </div>
-            <div class="col-md-4" id="controls">
-                <div class="row mx-2">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="00:30">
-                        <div class="input-group-append">
-                            <button class="btn btn-primary" type="button">Set</button>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-lg-4"></div>
+        </div>
+    </div>
 
-                <div class="row mt-4 mx-2">
-                    <button class="btn btn-success btn-block btn-lg">Capture</button>
+    <!-- Modal -->
+    <button id="show-modal" hidden="true" data-toggle="modal" data-target="#generic-modal"></button>
+
+    <div class="modal fade" id="generic-modal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title">OOPS!</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Something went wrong!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
+    </div>
 
-        <!-- Modal -->
-        <button id="show-modal" hidden="true" data-toggle="modal" data-target="#generic-modal"></button>
-
-        <div class="modal fade" id="generic-modal" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h3 class="modal-title">ABC</h3>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ABC
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">Close</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <script src="script/jquery-3.2.1.slim.min.js"></script>
-        <script src="script/popper.min.js"></script>
-        <script src="script/bootstrap.min.js"></script>
-        <script src="script/plotly-2.12.1.min.js"></script>
-        <script src="script/index.js"></script>
+    <script src="script/jquery-3.2.1.slim.min.js"></script>
+    <script src="script/popper.min.js"></script>
+    <script src="script/bootstrap.min.js"></script>
+    <script src="script/plotly-2.12.1.min.js"></script>
+    <script src="script/index.js"></script>
 </body>
 
 </html>
