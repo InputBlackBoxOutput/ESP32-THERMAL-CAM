@@ -1,4 +1,4 @@
-# ESP32-THERMAL-CAM
+# ESP32 THERMAL CAM
 
 ## Assembly
 - Enclosure consists of two parts and is held together using self-tapping screws 
